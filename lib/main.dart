@@ -1,4 +1,7 @@
+import 'package:expenz/constans/colors.dart';
 import 'package:flutter/material.dart';
+
+import 'package:expenz/screens/onboarding/onboarding_screens.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,17 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Expenz",
-      theme: ThemeData(fontFamily: "Inter"),
+      theme: ThemeData(fontFamily: "Inter", primaryColor: kMainColor1),
       home: Scaffold(
-        body: Center(
-          child: Text(
-            "Hello Vichith",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
+        body: OnboardingScreens(),
       ),
     );
   }

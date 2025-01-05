@@ -22,7 +22,10 @@ class FrontScreen extends StatelessWidget {
             fontWeight: FontWeight.w700,
             color: kMainColor2,
           ),
-        )
+        ),
+        SizedBox(
+          height: 60,
+        ),
       ],
     );
   }

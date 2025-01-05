@@ -1,3 +1,4 @@
+import 'package:expenz/screens/get_user_data_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -18,6 +19,8 @@ class OnboardingScreens extends StatefulWidget {
 class _OnboardingScreensState extends State<OnboardingScreens> {
   // create page controller
   final PageController _controller = PageController();
+
+  bool showDetailsPage = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +45,11 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                 ),
                 child: PageView(
                   controller: _controller,
+                  onPageChanged: (index) {
+                    setState(() {
+                      showDetailsPage = index == 4;
+                    });
+                  },
                   children: [
                     FrontScreen(),
                     SharedOnboardingScreen(
@@ -79,6 +87,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                   ],
                 ),
               ),
+
               // page dot indicators
               Container(
                 alignment: Alignment(0, 0.55),
@@ -87,8 +96,8 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                   count: 5,
                   effect: SwapEffect(
                     type: SwapType.yRotation,
-                    activeDotColor: kMainColor1,
-                    dotColor: kGrey,
+                    activeDotColor: kMainColor2,
+                    dotColor: kShadowColor,
                   ),
                 ),
               ),
@@ -99,15 +108,38 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                 left: 0,
                 right: 0,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: CustomButton(
-                      buttonColor1: kMainColor1,
-                      buttonColor2: kMainColor2,
-                      buttonName: "buttonTitle",
-                    ),
-                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: !showDetailsPage
+                      ? GestureDetector(
+                          onTap: () {
+                            _controller.animateToPage(
+                              _controller.page!.toInt() + 1,
+                              duration: Duration(milliseconds: 700),
+                              curve: Curves.easeInOutQuint,
+                            );
+                          },
+                          child: CustomButton(
+                            buttonColor1: kMainColor1,
+                            buttonColor2: kMainColor2,
+                            buttonName: "Next",
+                          ),
+                        )
+                      : GestureDetector(
+                          onTap: () {
+                            // navigate to the get user data screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => GetUserDataScreen(),
+                              ),
+                            );
+                          },
+                          child: CustomButton(
+                            buttonColor1: kMainColor1,
+                            buttonColor2: kGreen,
+                            buttonName: "Get Started !",
+                          ),
+                        ),
                 ),
               ),
             ],

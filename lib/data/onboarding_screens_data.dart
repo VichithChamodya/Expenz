@@ -6,7 +6,7 @@ class OnboardingScreensData {
       image: "assets/images/onboard_1.png",
       title: "Your Money, Your Rules",
       subTitle:
-          "Take charge like never before—own your financial story and make it remarkable.",
+          "Take charge like never before own your financial story and make it remarkable.",
     ),
     OnboardingScreensModel(
       image: "assets/images/onboard_2.png",

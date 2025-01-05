@@ -18,7 +18,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //width: MediaQuery.sizeOf(context).width * 0.8,
-      height: MediaQuery.sizeOf(context).height * 0.06,
+      height: MediaQuery.sizeOf(context).height * 0.065,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         gradient: LinearGradient(

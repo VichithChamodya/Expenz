@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 import 'package:expenz/data/onboarding_screens_data.dart';
 import 'package:expenz/screens/onboarding/shared_onboarding_screen.dart';
 import 'package:expenz/screens/onboarding/front_screen.dart';
@@ -14,6 +16,9 @@ class OnboardingScreens extends StatefulWidget {
 }
 
 class _OnboardingScreensState extends State<OnboardingScreens> {
+  // create page controller
+  final PageController _controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,6 +41,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                   ),
                 ),
                 child: PageView(
+                  controller: _controller,
                   children: [
                     FrontScreen(),
                     SharedOnboardingScreen(
@@ -71,6 +77,19 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                           .onboardingScreensDataList[3].subTitle,
                     ),
                   ],
+                ),
+              ),
+              // page dot indicators
+              Container(
+                alignment: Alignment(0, 0.55),
+                child: SmoothPageIndicator(
+                  controller: _controller,
+                  count: 5,
+                  effect: SwapEffect(
+                    type: SwapType.yRotation,
+                    activeDotColor: kMainColor1,
+                    dotColor: kGrey,
+                  ),
                 ),
               ),
 

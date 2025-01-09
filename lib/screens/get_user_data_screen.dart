@@ -1,8 +1,8 @@
-import 'package:expenz/constans/constans.dart';
-import 'package:expenz/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
+import 'package:expenz/constans/constans.dart';
 import 'package:expenz/constans/colors.dart';
+import 'package:expenz/widgets/custom_button.dart';
 
 class GetUserDataScreen extends StatefulWidget {
   const GetUserDataScreen({super.key});
@@ -20,6 +20,25 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
 
   // for the checkbox
   bool _isRememberMe = false;
+
+  // form key to the form validations
+  final _formKey = GlobalKey<FormState>();
+
+  // controllers for the textFormFields
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+
+  @override
+  void dispose() {
+    _userNameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +65,24 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
 
                 // add form
                 Form(
+                  key: _formKey,
                   child: Column(
                     children: [
                       // field for the username
                       TextFormField(
+                        controller: _userNameController,
+                        validator: (value) {
+                          // check weather the user entered a valid username
+                          if (value!.isEmpty) {
+                            return "Please Enter Your Name";
+                          }
+                          // If everything is valid, return null
+                          return null;
+                        },
                         cursorColor: kMainColor2,
                         cursorWidth: 1.5,
                         decoration: InputDecoration(
-                          hintText: "Name",
+                          hintText: "Username",
                           hintStyle: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),
                           filled: true,
@@ -65,6 +94,14 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(color: kMainColor2),
                           ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
+                          ),
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: kDefaultPadding),
                         ),
@@ -74,6 +111,15 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
 
                       // field for the email
                       TextFormField(
+                        controller: _emailController,
+                        validator: (value) {
+                          // check weather the user entered a valid email
+                          if (value!.isEmpty) {
+                            return "Please Enter Your Email";
+                          }
+                          // If everything is valid, return null
+                          return null;
+                        },
                         cursorColor: kMainColor2,
                         cursorWidth: 1.5,
                         decoration: InputDecoration(
@@ -89,6 +135,14 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(color: kMainColor2),
                           ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
+                          ),
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: kDefaultPadding),
                         ),
@@ -98,6 +152,15 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
 
                       // field for the password
                       TextFormField(
+                        controller: _passwordController,
+                        validator: (value) {
+                          // check weather the user entered a valid password
+                          if (value!.isEmpty) {
+                            return "Please Enter Valid Password";
+                          }
+                          // If everything is valid, return null
+                          return null;
+                        },
                         cursorColor: kMainColor2,
                         cursorWidth: 1.5,
                         obscureText:
@@ -114,6 +177,14 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(color: kMainColor2),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
                           ),
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -141,6 +212,19 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
 
                       // field for the confirm password
                       TextFormField(
+                        controller: _confirmPasswordController,
+                        validator: (value) {
+                          // check weather the user confirmed the password
+                          if (value!.isEmpty) {
+                            return "Please Confirm Your Password";
+                          }
+                          // Check if the passwords do not match
+                          if (value != _passwordController.text) {
+                            return "Passwords Do Not Match";
+                          }
+                          // If everything is valid, return null
+                          return null;
+                        },
                         cursorWidth: 1.5,
                         obscureText:
                             !_isConfirmPasswordVisible, // toggle confirm password visibility
@@ -156,6 +240,14 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(color: kMainColor2),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: kRed),
                           ),
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -203,8 +295,7 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                             ),
                             onChanged: (value) {
                               setState(() {
-                                _isRememberMe =
-                                    value ?? false; // toggle the state
+                                _isRememberMe = value!; // toggle the state
                               });
                             },
                           ),
@@ -214,10 +305,22 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                       const SizedBox(height: 20),
 
                       // submit button
-                      const CustomButton(
-                        buttonName: "Next",
-                        buttonColor1: kMainColor1,
-                        buttonColor2: kMainColor2,
+                      GestureDetector(
+                        child: const CustomButton(
+                          buttonName: "Next",
+                          buttonColor1: kMainColor1,
+                          buttonColor2: kMainColor2,
+                        ),
+                        onTap: () {
+                          if (_formKey.currentState!.validate()) {
+                            // if form is valid, process data
+                            String userName = _userNameController.text;
+                            String email = _emailController.text;
+                            String password = _passwordController.text;
+                            String confirmPassword =
+                                _confirmPasswordController.text;
+                          }
+                        },
                       )
                     ],
                   ),

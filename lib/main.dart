@@ -15,7 +15,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Expenz",
-      theme: ThemeData(fontFamily: "Inter", primaryColor: kMainColor1),
+      theme: ThemeData(
+        fontFamily: "Inter",
+        primaryColor: kMainColor1,
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: kMainColor2, // cursor color
+          selectionColor: kSelectionColor, // selection color
+          selectionHandleColor: kMainColor2, // handle color (dots/pointers)
+        ),
+      ),
       home: Scaffold(
         body: OnboardingScreens(),
       ),

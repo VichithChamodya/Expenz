@@ -12,3 +12,4 @@ const Color kYellow = Color(0xFFFCAC12);
 const Color kLightYellow = Color(0xFFF9DB9F);
 const Color kOrange = Color(0xFFFFCF99);
 const Color kShadowColor = Color.fromARGB(80, 0, 0, 0);
+const Color kSelectionColor = Color.fromARGB(128, 68, 138, 255);

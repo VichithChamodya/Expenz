@@ -1,4 +1,3 @@
-import 'package:expenz/screens/get_user_data_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -8,6 +7,7 @@ import 'package:expenz/screens/onboarding/shared_onboarding_screen.dart';
 import 'package:expenz/screens/onboarding/front_screen.dart';
 import 'package:expenz/constans/colors.dart';
 import 'package:expenz/widgets/custom_button.dart';
+import 'package:expenz/screens/get_user_data_screen.dart';
 
 class OnboardingScreens extends StatefulWidget {
   const OnboardingScreens({super.key});

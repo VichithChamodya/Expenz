@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: kShadowColor,
             blurRadius: 8,
@@ -37,7 +37,7 @@ class CustomButton extends StatelessWidget {
       child: Center(
         child: Text(
           buttonName,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w600,
             color: kWhite,

@@ -28,7 +28,7 @@ class SharedOnboardingScreen extends StatelessWidget {
           ),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.w700,
               color: kBlack,
@@ -38,14 +38,14 @@ class SharedOnboardingScreen extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             subTitle,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w300,
               color: kGrey,
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
         ],

@@ -53,7 +53,7 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Enter Your\nPresonal Data",
                   style: TextStyle(
                     fontSize: 30,
@@ -61,7 +61,7 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                     color: kBlack,
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
 
                 // add form
                 Form(
@@ -79,35 +79,34 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           // If everything is valid, return null
                           return null;
                         },
-                        cursorColor: kMainColor2,
                         cursorWidth: 1.5,
                         decoration: InputDecoration(
                           hintText: "Username",
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),
                           filled: true,
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kShadowColor),
+                            borderSide: const BorderSide(color: kShadowColor),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kMainColor2),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kRed),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding),
                         ),
                       ),
 
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
                       // field for the email
                       TextFormField(
@@ -120,35 +119,34 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           // If everything is valid, return null
                           return null;
                         },
-                        cursorColor: kMainColor2,
                         cursorWidth: 1.5,
                         decoration: InputDecoration(
                           hintText: "Email",
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),
                           filled: true,
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kShadowColor),
+                            borderSide: const BorderSide(color: kShadowColor),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kMainColor2),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kRed),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding),
                         ),
                       ),
 
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
                       // field for the password
                       TextFormField(
@@ -161,33 +159,32 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           // If everything is valid, return null
                           return null;
                         },
-                        cursorColor: kMainColor2,
                         cursorWidth: 1.5,
                         obscureText:
                             !_isPasswordVisible, // Toggle password visibility
                         decoration: InputDecoration(
                           hintText: "Password",
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),
                           filled: true,
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kShadowColor),
+                            borderSide: const BorderSide(color: kShadowColor),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kMainColor2),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kRed),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding),
                           suffixIcon: IconButton(
                             onPressed: () {
                               setState(() {
@@ -196,11 +193,11 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                               });
                             },
                             icon: _isPasswordVisible
-                                ? Icon(
+                                ? const Icon(
                                     Icons.visibility,
                                     color: kBlack,
                                   )
-                                : Icon(
+                                : const Icon(
                                     Icons.visibility_off,
                                     color: kGrey,
                                   ),
@@ -208,7 +205,7 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                         ),
                       ),
 
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
                       // field for the confirm password
                       TextFormField(
@@ -230,27 +227,27 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                             !_isConfirmPasswordVisible, // toggle confirm password visibility
                         decoration: InputDecoration(
                           hintText: "Confirm Password",
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),
                           filled: true,
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kShadowColor),
+                            borderSide: const BorderSide(color: kShadowColor),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kMainColor2),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kRed),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(color: kRed),
+                            borderSide: const BorderSide(color: kMainColor2),
                           ),
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding),
                           suffixIcon: IconButton(
                             onPressed: () {
                               setState(() {
@@ -259,11 +256,11 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                               });
                             },
                             icon: _isConfirmPasswordVisible
-                                ? Icon(
+                                ? const Icon(
                                     Icons.visibility,
                                     color: kBlack,
                                   )
-                                : Icon(
+                                : const Icon(
                                     Icons.visibility_off,
                                     color: kGrey,
                                   ),
@@ -271,14 +268,14 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                         ),
                       ),
 
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
 
                       // remember me for the next time
                       Row(
                         mainAxisSize:
                             MainAxisSize.min, // minimize the size of the row
                         children: [
-                          Text(
+                          const Text(
                             "Remember Me for the next time",
                             style: TextStyle(
                               fontSize: 16,
@@ -289,7 +286,7 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           Checkbox(
                             value: _isRememberMe,
                             activeColor: kMainColor2,
-                            side: BorderSide(
+                            side: const BorderSide(
                               color: kGrey,
                               width: 1.5,
                             ),

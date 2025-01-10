@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:expenz/screens/onboarding/onboarding_screens.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Inter",
         primaryColor: kMainColor1,
-        textSelectionTheme: TextSelectionThemeData(
+        textSelectionTheme: const TextSelectionThemeData(
           cursorColor: kMainColor2, // cursor color
           selectionColor: kSelectionColor, // selection color
           selectionHandleColor: kMainColor2, // handle color (dots/pointers)
         ),
       ),
-      home: Scaffold(
+      home: const Scaffold(
         body: OnboardingScreens(),
       ),
     );

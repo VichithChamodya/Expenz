@@ -15,7 +15,7 @@ class FrontScreen extends StatelessWidget {
           width: 250,
           fit: BoxFit.cover,
         ),
-        Text(
+        const Text(
           "Expenz",
           style: TextStyle(
             fontSize: 60,
@@ -23,7 +23,7 @@ class FrontScreen extends StatelessWidget {
             color: kMainColor2,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 60,
         ),
       ],

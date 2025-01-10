@@ -51,7 +51,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                     });
                   },
                   children: [
-                    FrontScreen(),
+                    const FrontScreen(),
                     SharedOnboardingScreen(
                       image: OnboardingScreensData
                           .onboardingScreensDataList[0].image,
@@ -90,11 +90,11 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
 
               // page dot indicators
               Container(
-                alignment: Alignment(0, 0.55),
+                alignment: const Alignment(0, 0.55),
                 child: SmoothPageIndicator(
                   controller: _controller,
                   count: 5,
-                  effect: SwapEffect(
+                  effect: const SwapEffect(
                     type: SwapType.yRotation,
                     activeDotColor: kMainColor2,
                     dotColor: kShadowColor,
@@ -114,11 +114,11 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                           onTap: () {
                             _controller.animateToPage(
                               _controller.page!.toInt() + 1,
-                              duration: Duration(milliseconds: 700),
+                              duration: const Duration(milliseconds: 700),
                               curve: Curves.easeInOutQuint,
                             );
                           },
-                          child: CustomButton(
+                          child: const CustomButton(
                             buttonColor1: kMainColor1,
                             buttonColor2: kMainColor2,
                             buttonName: "Next",
@@ -130,11 +130,11 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => GetUserDataScreen(),
+                                builder: (context) => const GetUserDataScreen(),
                               ),
                             );
                           },
-                          child: CustomButton(
+                          child: const CustomButton(
                             buttonColor1: kMainColor1,
                             buttonColor2: kGreen,
                             buttonName: "Get Started !",

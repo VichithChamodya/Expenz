@@ -1,5 +1,7 @@
+import 'package:expenz/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'package:expenz/services/user_services.dart';
 import 'package:expenz/constans/constans.dart';
 import 'package:expenz/constans/colors.dart';
 import 'package:expenz/widgets/custom_button.dart';
@@ -217,7 +219,7 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           }
                           // Check if the passwords do not match
                           if (value != _passwordController.text) {
-                            return "Passwords Do Not Match";
+                            return "Make sure both passwords are the same";
                           }
                           // If everything is valid, return null
                           return null;
@@ -308,7 +310,7 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                           buttonColor1: kMainColor1,
                           buttonColor2: kMainColor2,
                         ),
-                        onTap: () {
+                        onTap: () async {
                           if (_formKey.currentState!.validate()) {
                             // if form is valid, process data
                             String userName = _userNameController.text;
@@ -316,9 +318,28 @@ class _GetUserDataScreenState extends State<GetUserDataScreen> {
                             String password = _passwordController.text;
                             String confirmPassword =
                                 _confirmPasswordController.text;
+
+                            // save the username and email in the device storage
+                            await UserServices.storeUserDetails(
+                              userName: userName,
+                              email: email,
+                              password: password,
+                              confirmPassword: confirmPassword,
+                              context: context,
+                            );
+
+                            // navigate to the main screen
+                            if (context.mounted) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const MainScreen(),
+                                ),
+                              );
+                            }
                           }
                         },
-                      )
+                      ),
                     ],
                   ),
                 ),

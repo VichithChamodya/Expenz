@@ -2,8 +2,11 @@ import 'package:expenz/constans/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:expenz/screens/onboarding/onboarding_screens.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreferences.getInstance();
   runApp(const MyApp());
 }
 
